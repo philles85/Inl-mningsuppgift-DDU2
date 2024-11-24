@@ -36,5 +36,9 @@ for (let k = 0; k < cities.length; k++) {
     let cel = document.createElement("div");
     cel.classList.add("cell");
     table.appendChild(cel);
+    cel.textContent = cities[k].id + "-" + cities[k].name;
+    cel.style.gridColumn = "1";
+    cel.style.gridRow = k + 2;
 
 }
+
