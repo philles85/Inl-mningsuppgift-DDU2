@@ -42,3 +42,13 @@ for (let k = 0; k < cities.length; k++) {
 
 }
 
+for (let p = 0; p <= 38; p++) {
+    let cel = document.createElement("div");
+    cel.classList.add("cell");
+    cel.classList.add("head_column")
+    table.appendChild(cel);
+    cel.textContent = p;
+    cel.style.gridRow = "1";
+    cel.style.gridColumn = p + 2;
+
+}
