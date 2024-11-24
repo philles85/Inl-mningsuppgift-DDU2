@@ -5,6 +5,9 @@ function cityAsk(tag) {
         innerCity.classList.add("cityBox");
         city.appendChild(innerCity);
         innerCity.textContent = element.name;
+        if (tag === element.name) {
+            h2.textContent = tag + " " + "(" + element.country + ")";
+        }
     }
 }
 // Recommended: constants with references to existing HTML-elements
