@@ -32,6 +32,9 @@ let findMatch = false;
 cityAsk();
 
 
+for (let k = 0; k < cities.length; k++) {
+    let cel = document.createElement("div");
+    cel.classList.add("cell");
+    table.appendChild(cel);
 
-
-
+}
