@@ -57,6 +57,29 @@ for (let p = 0; p <= 38; p++) {
 
 for (let i = 1; i <= 38; i++) {
     let inner = i;
-    for (let j = 0; j < inner; j++) { }
+    for (let j = 0; j < inner; j++) {
+        for (let f = 0; f < distances.length; f++) {
+            if (distances[f].city1 == i && distances[f].city2 == j) {
+                //console.log(distances[f].distance);
+                let cel = document.createElement("div");
+                cel.classList.add("cell");
+                table.appendChild(cel);
+            }
+        }
+    }
+}
 
+
+for (let i = 1; i <= 38; i++) {
+    let inner = i;
+    for (let j = 0; j < inner; j++) {
+        for (let f = 0; f < distances.length; f++) {
+            if (distances[f].city1 == i && distances[f].city2 == j) {
+                //console.log(distances[f].distance);
+                let cel = document.createElement("div");
+                cel.classList.add("cell");
+                table.appendChild(cel);
+            }
+        }
+    }
 }
