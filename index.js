@@ -39,7 +39,10 @@ for (let k = 0; k < cities.length; k++) {
     cel.textContent = cities[k].id + "-" + cities[k].name;
     cel.style.gridColumn = "1";
     cel.style.gridRow = k + 2;
-
+    if (k % 2 == 0) {
+        cel.classList.add("even_row");
+        cel.classList.add("head_row");
+    }
 }
 
 for (let p = 0; p <= 38; p++) {
@@ -60,7 +63,6 @@ for (let i = 1; i <= 38; i++) {
     for (let j = 0; j < inner; j++) {
         for (let f = 0; f < distances.length; f++) {
             if (distances[f].city1 == i && distances[f].city2 == j) {
-                //console.log(distances[f].distance);
                 let cel = document.createElement("div");
                 cel.classList.add("cell");
                 table.appendChild(cel);
@@ -77,7 +79,6 @@ for (let i = 1; i <= 38; i++) {
     for (let j = 0; j < inner; j++) {
         for (let f = 0; f < distances.length; f++) {
             if (distances[f].city1 == i && distances[f].city2 == j) {
-                //console.log(distances[f].distance);
                 let cel = document.createElement("div");
                 cel.classList.add("cell");
                 table.appendChild(cel);
