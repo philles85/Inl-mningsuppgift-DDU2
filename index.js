@@ -52,3 +52,11 @@ for (let p = 0; p <= 38; p++) {
     cel.style.gridColumn = p + 2;
 
 }
+
+
+
+for (let i = 1; i <= 38; i++) {
+    let inner = i;
+    for (let j = 0; j < inner; j++) { }
+
+}
