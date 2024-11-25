@@ -81,6 +81,8 @@ for (let i = 1; i <= 38; i++) {
                 let cel = document.createElement("div");
                 cel.classList.add("cell");
                 table.appendChild(cel);
+                cel.textContent = Math.round(distances[f].distance / 10);
+                cel.style.gridArea = `${j + 2} / ${i + 2}`;
             }
         }
     }
