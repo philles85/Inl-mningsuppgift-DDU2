@@ -1,4 +1,3 @@
-// Recommended: All functions declared here
 function createAllCityBoxes() {
     for (let element of cities) {
         let innerCity = document.createElement("div");
@@ -51,7 +50,9 @@ function secondHalf(city2, city1, dist) {
 }
 
 
-// Recommended: constants with references to existing HTML-elements
+
+
+
 const Main = document.querySelector("main");
 const table = document.getElementById("table");
 const city = document.getElementById("cities");
@@ -60,7 +61,10 @@ const h2 = document.querySelector("h2");
 let findMatch = false;
 
 
-// Recommended: Ask for the city name and then the rest of the code
+
+
+
+
 
 
 Main.style.maxWidth = "100%"
@@ -140,14 +144,14 @@ for (let element of cities) {
             if (longest.city1 == element.id) {
                 let longestDiv = document.createElement("div");
                 longestDiv.classList.add("cityBox", "furthest");
-                longestDiv.textContent = `${cities[longestCity].name} Ligger ${Math.round(longestDistance / 10)} mil bort`;
+                longestDiv.textContent = `${cities[longestCity].name} ligger ${Math.round(longestDistance / 10)} mil bort`;
                 city.appendChild(longestDiv);
                 console.log(`city1: ${longest.city1}, city2: ${longest.city2}, distance: ${longest.distance}`);
             }
             else if (longest.city2 == element.id) {
                 let longestDiv = document.createElement("div");
                 longestDiv.classList.add("cityBox", "furthest");
-                longestDiv.textContent = `${cities[longestCity1].name} Ligger ${Math.round(longestDistance / 10)} mil bort`;
+                longestDiv.textContent = `${cities[longestCity1].name} ligger ${Math.round(longestDistance / 10)} mil bort`;
                 city.appendChild(longestDiv);
                 console.log(`city1: ${longest.city2}, city2: ${longest.city1}, distance: ${longest.distance}`);
             }
