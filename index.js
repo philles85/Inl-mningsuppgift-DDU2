@@ -14,36 +14,37 @@ function createAllCityBoxes() {
     }
 
     if (!findMatch) {
-        h2.textContent = insert + " " + "finns inte i databasen";
+        h2.textContent = `${insert} finns inte i databasen`;
+        document.title = `Not Found`
     }
 }
 
 
 
-function firstHalf(i, j) {
+function firstHalf(city1, city2) {
     let cel = document.createElement("div");
     cel.classList.add("cell");
     table.appendChild(cel);
-    cel.style.gridArea = `${i + 2} / ${j + 2}`;
-    if (j % 2 == 0) {
-        cel.classList.add("even_col");
-    }
-    if (i % 2 == 0) {
+    cel.style.gridArea = `${city1 + 2} / ${city2 + 2}`;
+    if (city1 % 2 == 0) {
         cel.classList.add("even_row");
+    }
+    if (city2 % 2 == 0) {
+        cel.classList.add("even_col");
     }
     return cel;
 }
 
-function secondHalf(j, i, f) {
+function secondHalf(city2, city1, dist) {
     let cel2 = document.createElement("div");
     cel2.classList.add("cell");
     table.appendChild(cel2);
-    cel2.textContent = Math.round(distances[f].distance / 10);
-    cel2.style.gridArea = `${j + 2} / ${i + 2}`;
-    if (i % 2 == 0) {
+    cel2.textContent = Math.round(distances[dist].distance / 10);
+    cel2.style.gridArea = `${city2 + 2} / ${city1 + 2}`;
+    if (city1 % 2 == 0) {
         cel2.classList.add("even_col");
     }
-    if (j % 2 == 0) {
+    if (city2 % 2 == 0) {
         cel2.classList.add("even_row");
     }
     return cel2;
@@ -58,15 +59,18 @@ const insert = prompt("Insert city here!");
 const h2 = document.querySelector("h2");
 let findMatch = false;
 
+
 // Recommended: Ask for the city name and then the rest of the code
 
+
+Main.style.maxWidth = "100%"
 
 createAllCityBoxes();
 
 
 for (let element of cities) {
     if (insert == element.name) {
-        console.log(element.id)
+        console.log(element.id, "This is cities id")
 
         let distanceCity = [];
 
@@ -88,20 +92,18 @@ for (let element of cities) {
 
         if (distanceCity.length > 0) {
             let maxDistance = Math.max(...distanceCity);
-            console.log(maxDistance);
+            console.log(maxDistance, "This is max distance");
 
             function found1(city) {
                 return city.distance == maxDistance && (city.city1 == element.id || city.city2 == element.id);
             }
-            console.log(distances.filter(found1));
 
             let minDistance = Math.min(...distanceCity);
-            console.log(minDistance);
+            console.log(minDistance, "This is min distance");
 
             function found2(city) {
                 return city.distance == minDistance && (city.city2 == element.id || city.city1 == element.id);
             }
-            console.log(distances.filter(found2));
 
 
             let shortest = distances.find(found2);
@@ -109,19 +111,22 @@ for (let element of cities) {
             let shortestCity = shortest.city2;
             let shortestDistance = shortest.distance;
 
+            console.log(shortest);
+
+
             if (shortest.city1 == element.id) {
-                console.log(`city1: ${shortest.city2}, city2: ${shortest.city1}, distance: ${shortest.distance}`);
                 let shortestDiv = document.createElement("div");
                 shortestDiv.classList.add("cityBox", "closest");
                 shortestDiv.textContent = `${cities[shortestCity].name} ligger ${shortestDistance} mil bort`;
                 city.appendChild(shortestDiv);
+                console.log(`city1: ${shortest.city2}, city2: ${shortest.city1}, distance: ${Math.round(shortest.distance / 10)}`);
             }
             else if (shortest.city2 == element.id) {
-                console.log(`city1: ${shortest.city1}, city2: ${shortest.city2}, distance: ${shortest.distance}`);
                 let shortestDiv = document.createElement("div");
                 shortestDiv.classList.add("cityBox", "closest");
-                shortestDiv.textContent = `${cities[shortestCity1].name} ligger ${shortestDistance} mil bort`;
+                shortestDiv.textContent = `${cities[shortestCity1].name} ligger ${Math.round(shortestDistance / 10)} mil bort`;
                 city.appendChild(shortestDiv);
+                console.log(`city1: ${shortest.city1}, city2: ${shortest.city2}, distance: ${shortest.distance}`);
             }
 
 
@@ -130,20 +135,21 @@ for (let element of cities) {
             let longestCity = longest.city2;
             let longestDistance = longest.distance;
 
+            console.log(longest);
 
             if (longest.city1 == element.id) {
-                console.log(`city1: ${longest.city1}, city2: ${longest.city2}, distance: ${longest.distance}`);
                 let longestDiv = document.createElement("div");
                 longestDiv.classList.add("cityBox", "furthest");
-                longestDiv.textContent = `${cities[longestCity].name} Ligger ${longestDistance} mil bort`;
+                longestDiv.textContent = `${cities[longestCity].name} Ligger ${Math.round(longestDistance / 10)} mil bort`;
                 city.appendChild(longestDiv);
+                console.log(`city1: ${longest.city1}, city2: ${longest.city2}, distance: ${longest.distance}`);
             }
             else if (longest.city2 == element.id) {
-                console.log(`city1: ${longest.city2}, city2: ${longest.city1}, distance: ${longest.distance}`);
                 let longestDiv = document.createElement("div");
                 longestDiv.classList.add("cityBox", "furthest");
-                longestDiv.textContent = `${cities[longestCity1].name} Ligger ${longestDistance} mil bort`;
+                longestDiv.textContent = `${cities[longestCity1].name} Ligger ${Math.round(longestDistance / 10)} mil bort`;
                 city.appendChild(longestDiv);
+                console.log(`city1: ${longest.city2}, city2: ${longest.city1}, distance: ${longest.distance}`);
             }
 
 
