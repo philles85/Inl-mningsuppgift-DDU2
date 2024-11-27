@@ -104,6 +104,26 @@ for (let element of cities) {
             console.log(distances.filter(found2));
 
 
+            let shortest = distances.find(found2);
+            let shortestCity1 = shortest.city1;
+            let shortestCity = shortest.city2;
+            let shortestDistance = shortest.distance;
+
+            if (shortest.city1 == element.id) {
+                console.log(`city1: ${shortest.city2}, city2: ${shortest.city1}, distance: ${shortest.distance}`);
+                let shortestDiv = document.createElement("div");
+                shortestDiv.classList.add("cityBox", "closest");
+                shortestDiv.textContent = `${cities[shortestCity].name} ligger ${shortestDistance} mil bort`;
+                city.appendChild(shortestDiv);
+            }
+            else if (shortest.city2 == element.id) {
+                console.log(`city1: ${shortest.city1}, city2: ${shortest.city2}, distance: ${shortest.distance}`);
+                let shortestDiv = document.createElement("div");
+                shortestDiv.classList.add("cityBox", "closest");
+                shortestDiv.textContent = `${cities[shortestCity1].name} ligger ${shortestDistance} mil bort`;
+                city.appendChild(shortestDiv);
+            }
+
 
 
         }
