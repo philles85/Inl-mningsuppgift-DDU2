@@ -84,13 +84,31 @@ for (let element of cities) {
 
             }
         }
+
+
+        if (distanceCity.length > 0) {
+            let maxDistance = Math.max(...distanceCity);
+            console.log(maxDistance);
+
+            function found1(city) {
+                return city.distance == maxDistance && (city.city1 == element.id || city.city2 == element.id);
+            }
+            console.log(distances.filter(found1));
+
+            let minDistance = Math.min(...distanceCity);
+            console.log(minDistance);
+
+            function found2(city) {
+                return city.distance == minDistance && (city.city2 == element.id || city.city1 == element.id);
+            }
+            console.log(distances.filter(found2));
+
+
+
+
+        }
+
     }
-
-
-
-
-
-
 }
 
 
