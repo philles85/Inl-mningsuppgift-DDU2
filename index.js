@@ -125,6 +125,28 @@ for (let element of cities) {
             }
 
 
+            let longest = distances.find(found1);
+            let longestCity1 = longest.city1;
+            let longestCity = longest.city2;
+            let longestDistance = longest.distance;
+
+
+            if (longest.city1 == element.id) {
+                console.log(`city1: ${longest.city1}, city2: ${longest.city2}, distance: ${longest.distance}`);
+                let longestDiv = document.createElement("div");
+                longestDiv.classList.add("cityBox", "furthest");
+                longestDiv.textContent = `${cities[longestCity].name} Ligger ${longestDistance} mil bort`;
+                city.appendChild(longestDiv);
+            }
+            else if (longest.city2 == element.id) {
+                console.log(`city1: ${longest.city2}, city2: ${longest.city1}, distance: ${longest.distance}`);
+                let longestDiv = document.createElement("div");
+                longestDiv.classList.add("cityBox", "furthest");
+                longestDiv.textContent = `${cities[longestCity1].name} Ligger ${longestDistance} mil bort`;
+                city.appendChild(longestDiv);
+            }
+
+
 
         }
 
