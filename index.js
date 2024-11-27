@@ -27,6 +27,9 @@ function firstHalf(i, j) {
     if (j % 2 == 0) {
         cel.classList.add("even_col");
     }
+    if (i % 2 == 0) {
+        cel.classList.add("even_row");
+    }
     return cel;
 }
 
@@ -38,6 +41,9 @@ function secondHalf(j, i, f) {
     cel2.style.gridArea = `${j + 2} / ${i + 2}`;
     if (i % 2 == 0) {
         cel2.classList.add("even_col");
+    }
+    if (j % 2 == 0) {
+        cel2.classList.add("even_row");
     }
     return cel2;
 }
