@@ -11,13 +11,14 @@ function createAllCityBoxes() {
             innerCity.classList.add("target");
             document.title = `${insert}`
         }
-
     }
 
     if (!findMatch) {
         h2.textContent = insert + " " + "finns inte i databasen";
     }
 }
+
+
 
 function firstHalf(i, j) {
     let cel = document.createElement("div");
@@ -62,6 +63,35 @@ let findMatch = false;
 
 createAllCityBoxes();
 
+
+for (let element of cities) {
+    if (insert == element.name) {
+        console.log(element.id)
+
+        let distanceCity = [];
+
+        for (let m = 0; m < distances.length; m++) {
+
+            if (element.id == distances[m].city1) {
+                console.log(distances[m].distance);
+                distanceCity.push(distances[m].distance);
+
+
+            }
+            if (element.id == distances[m].city2) {
+                console.log(distances[m].distance)
+                distanceCity.push(distances[m].distance);
+
+            }
+        }
+    }
+
+
+
+
+
+
+}
 
 
 for (let k = 0; k < cities.length; k++) {
